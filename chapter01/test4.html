@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test4</title>
+    <style>
+      .page {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+      }
+      .point {
+        background-color: white;
+        color: orange;
+        position: absolute;
+        top: 124;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="point">aasdfasdfsadfasdfas</div>
+    </div>
+    <script>
+      const page = document.querySelector(".page");
+      const point = document.querySelector(".point");
+
+      page.addEventListener("mouseover", (event) => {
+        console.log(event.clientY);
+        point.style.top = event.clientY + "px";
+        point.style.left = event.clientX + "px";
+        point.innerHTML = `X 좌표 = ${event.clientX} Y좌표 = ${event.clientY}`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window cordinate</title>
+    <style>
+      div {
+        width: 300px;
+        height: 300px;
+        background-color: wheat;
+        margin-top: 10px;
+      }
+      .event {
+        background-color: yellowgreen;
+      }
+
+      .btns {
+        border: 1px solid black;
+        width: 100%;
+        background: red;
+        position: fixed;
+        display: inline;
+        height: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btns">
+      <button class="move">100픽셀씩 이동</button>
+      <button class="fix">100픽셀위치로 이동</button>
+      <button class="mtoE">event위치로 이동</button>
+    </div>
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div class="event">5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <script>
+      const event = document.querySelector(".event");
+      const real = event.getBoundingClientRect();
+
+      event.addEventListener("click", (e) => {
+        const rect = event.getBoundingClientRect();
+        console.log(rect);
+        console.log(`page : ${e.pageX}, ${e.pageY}`);
+        console.log(`client : ${e.clientX}, ${e.clientY}`);
+      });
+
+      const btns = document.querySelector(".btns");
+
+      btns.addEventListener("click", (e) => {
+        console.log(e.target.classList.value);
+        let target = e.target.classList.value;
+
+        if (target == "move") {
+          // window.scrollBy(0, 100);
+          window.scrollBy({ top: 100, left: 0, behavior: "smooth" });
+        } else if (target == "fix") {
+          scrollTo(0, 100);
+        } else if (target == "mtoE") {
+          // const move = event.getBoundingClientRect();
+          // scrollTo(0, move.y);
+          event.scrollIntoView();
+        }
+      });
+    </script>
+  </body>
+</html>
