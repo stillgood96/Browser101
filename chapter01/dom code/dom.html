@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      body {
+        background-color: black;
+        text-align: center;
+      }
+      section {
+        width: 50%;
+        margin: 50px auto;
+        background-color: brown;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      img {
+        z-index: 100;
+        will-change: opacity;
+      }
+      h1,
+      h3,
+      span {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      <h3>Don't forget to code your dream</h3>
+    </section>
+    <!--Hello-->
+    <span>Hello World!</span>
+
+    <script>
+      const section = document.querySelector("section");
+      const h2 = document.createElement("h2");
+
+      // <h2 class="title"></h2>
+      h2.setAttribute("class", "title");
+
+      // <h2 class="title">This is title !!</h2>
+      h2.textContent = "This is title !!";
+
+      // 이렇게 되면 seciton태그 내부에 가장 마지막에 배치된다.
+      section.appendChild(h2);
+
+      const h3 = document.querySelector("h3");
+      // insertBefore(newNode, referenceNode)
+      // h3태그 이전에 삽입할 수 있다.
+      section.insertBefore(h2, h3);
+      // section.removeChild(h2);
+
+      // innerHTML
+      // innerHTML을 이용하면서 `` 백틱기호를 사용해서 코드를 작성하면
+      // 위의 createElement를 이용하는 것보다 효율적이긴 하나 앞서 성능문제가 대두된다.
+      // 브라우저에서 코드를 읽어와 노드로 만드는 과정에서 domTree를 만드는 과정에서
+      // InnerHTML을 이용해서 작성하면 그만큼 만들어지는 Tree의 양은 많아지게 된다.
+      // 그래서, 부분적으로 수정을 해야하는 부분이라면 createElement와 insertBefore를 이용하는 것이
+      // 효율적인 부분이라고 생각한다고 한다. . .
+      section.innerHTML = ` <img src="img/avatar.png" alt="avatar" />
+      <h1 id="brand">Dream Coding</h1>
+      <h3>Don't forget to code your dream</h3>`;
+    </script>
+  </body>
+</html>

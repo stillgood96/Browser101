@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 250px;
+        height: 250px;
+        background-color: yellow;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="checkbox" />
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      document.addEventListener(
+        "wheel",
+        (event) => {
+          console.log("scrolling");
+          event.preventDefault();
+        }
+        //{ passive: false }   // 스크롤링 같은 경우는 passive가 True로 지정되어있는데 이렇게 되면 동작 취소하는 preventDefault 사용이불가
+        // 그래서 사용을 하려면 따로 passive 옵션을 추가하여서 false값을 주어야 한다.
+      );
+      const checkbox = document.querySelector("input");
+      checkbox.addEventListener("click", (event) => {
+        // long
+        console.log("checked");
+        event.preventDefault(); // 브라우저에서 기본적인 동작을 취소함 - ex)체크박스에 체크를 했는데 체크가 안됨
+      });
+    </script>
+  </body>
+</html>

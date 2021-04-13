@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+      }
+
+      .middle {
+        width: 50%;
+        height: 50%;
+        margin: auto;
+        background-color: thistle;
+        transform: translateY(50%);
+      }
+
+      button {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="middle">
+        <button>Click Me</button>
+      </div>
+    </div>
+    <script>
+      const outer = document.querySelector(".outer");
+      const middle = document.querySelector(".middle");
+      const button = document.querySelector("button");
+
+      outer.addEventListener("click", (event) => {
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+        console.log(`outer: ${event.currentTarget}, ${event.target}`);
+      });
+      middle.addEventListener("click", (event) => {
+        if (event.target !== event.currentTarget) {
+          return;
+        }
+        console.log(`middle ${event.currentTarget}, ${event.target}`);
+      });
+      button.addEventListener("click", (event) => {
+        console.log(`button1 ${event.currentTarget}, ${event.target}`);
+        // 이벤트는 같은 범위안에 이벤트가 여러개 존재한다면 이벤트를 캡쳐링하고 이벤트가 발생하면
+        // 부모의 이벤트 부모의 이벤트 타고타고 끝가지 타고 넘어가는데 해당 범위 부분에 이벤트만 발생시키려고
+        // 아래의 함수를 쓰면 되기는 하지만 최대한 쓰기를 삼가해야한다.
+        // 쓰게 된다면 다른부분의 이벤트를 무시하는 것이기 때문에 이벤트가 제대로 발생이 안된다.
+        // event.stopPropagation();
+        //event.stopImmediatePropagation();
+      });
+      button.addEventListener("click", (event) => {
+        console.log(`button2 ${event.currentTarget}, ${event.target}`);
+      });
+    </script>
+  </body>
+</html>
