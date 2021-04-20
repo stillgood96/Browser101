@@ -1,0 +1,61 @@
+body {
+  background-color: lightgreen;
+}
+
+.main {
+  width: 1024px;
+  height: 500px;
+  background-image: url(./img/background.png);
+  background-size: cover;
+  margin: 100px auto auto auto;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.startBtn {
+  width: 60px;
+  height: 50px;
+  font-size: 24px;
+  margin: 10px auto;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: burlywood;
+  cursor: pointer;
+}
+
+.timer {
+  width: 120px;
+  padding: 10px;
+  margin: auto;
+
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: gainsboro;
+  vertical-align: center;
+
+  font-size: 24px;
+}
+
+.residue {
+  width: 30px;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: orange;
+
+  margin: 10px auto;
+}
+
+.monsters {
+  width: 1024px;
+  height: 100%;
+  position: absolute;
+}

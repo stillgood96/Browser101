@@ -1,0 +1,133 @@
+:root {
+  --padding: 20px;
+  --basic-transition: transform 300ms ease-in;
+  --basic-transform: scale(1.1);
+
+  --game-width: 800px;
+  --game-height: 500px;
+  --game-background: url(img/background.png) center/cover;
+  --game-btn-width: 60px;
+  --game-btn-height: 60px;
+  --game-btn-border: 4px solid black;
+  --game-btn-background: wheat;
+  --game-btn-size: 24px;
+
+  --game-timer-width: 100px;
+  --game-timer-height: 35px;
+  --game-timer-background: white;
+
+  --game-score-width: 50px;
+  --game-score-height: 50px;
+  --game-score-background: darksalmon;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+body {
+  text-align: center;
+}
+/* 게임 전체부분 */
+.game {
+  display: flex;
+  flex-direction: column;
+  width: var(--game-width);
+  height: var(--game-height);
+  background: var(--game-background);
+  margin: auto;
+  border-radius: 20px;
+}
+
+/* 게임 헤더 */
+/* block으로 변경해서 해도 가능하지만 위에서 Flex 사용했기 때문에 여기서도 Flex */
+.game__header {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding);
+  align-items: center;
+}
+
+/* 게임내 버튼 */
+.game__button {
+  width: var(--game-btn-width);
+  height: var(--game-btn-height);
+  border: var(--game-btn-border);
+  font-size: var(--game-btn-size);
+  transition: var(--basic-transition);
+}
+
+/* 게임내 버튼 hover시 크기 키우기 */
+.game__button:hover {
+  transform: var(--basic-transform);
+}
+
+/* 게임내 타이머 */
+.game__timmer {
+  width: var(--game-timer-width);
+  height: var(--game-timer-height);
+  background-color: var(--game-timer-background);
+  text-align: center;
+  vertical-align: middle;
+  border: 5px solid black;
+  border-radius: 10px;
+  font-size: 32px;
+  margin-top: 8px;
+}
+/* 게임내 점수 */
+.game__score {
+  width: var(--game-score-width);
+  height: var(--game-score-height);
+  line-height: var(--game-score-height);
+  font-size: 46px;
+  border: 3px solid black;
+  border-radius: 50%;
+  background-color: var(--game-score-background);
+  color: white;
+  margin-top: 8px;
+  text-align: center;
+  vertical-align: center;
+  padding: 0;
+}
+
+/* 당근, 곤충들이 나올 필드 
+   height 값 지정시 .game 태그안에 요소를 뺀 나머지를 차지하게 
+   .game에 flex와 column값을 줘서 해결 !*/
+.game__field {
+  margin-top: 40px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+/* pop-up */
+.pop-up {
+  width: 400px;
+  height: 140px;
+  padding: 20px;
+  background-color: #00000090;
+  color: white;
+  text-align: center;
+  margin: auto;
+  transform: translateY(-150%);
+  border-radius: 20px;
+}
+
+.pop-up__refresh {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: wheat;
+}
+
+.pop-up__message {
+  display: block;
+  font-size: 38px;
+}
+
+.pop-up--hide {
+  display: none;
+}
