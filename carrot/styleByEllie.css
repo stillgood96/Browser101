@@ -95,10 +95,11 @@ body {
    height 값 지정시 .game 태그안에 요소를 뺀 나머지를 차지하게 
    .game에 flex와 column값을 줘서 해결 !*/
 .game__field {
+  position: relative;
   margin-top: 40px;
   width: 100%;
   height: 100%;
-  opacity: 0.4;
+  opacity: 1;
 }
 
 /* pop-up */
