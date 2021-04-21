@@ -74,6 +74,7 @@ body {
   border-radius: 10px;
   font-size: 32px;
   margin-top: 8px;
+  visibility: hidden;
 }
 /* 게임내 점수 */
 .game__score {
@@ -89,6 +90,7 @@ body {
   text-align: center;
   vertical-align: center;
   padding: 0;
+  visibility: hidden;
 }
 
 /* 당근, 곤충들이 나올 필드 
