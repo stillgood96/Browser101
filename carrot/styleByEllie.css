@@ -28,6 +28,7 @@ button {
 }
 body {
   text-align: center;
+  background-color: black;
 }
 /* 게임 전체부분 */
 .game {
@@ -75,13 +76,15 @@ body {
   font-size: 32px;
   margin-top: 8px;
   visibility: hidden;
+  user-select: none;
+  cursor: auto;
 }
 /* 게임내 점수 */
 .game__score {
   width: var(--game-score-width);
   height: var(--game-score-height);
   line-height: var(--game-score-height);
-  font-size: 46px;
+  font-size: 38px;
   border: 3px solid black;
   border-radius: 50%;
   background-color: var(--game-score-background);
@@ -91,6 +94,8 @@ body {
   vertical-align: center;
   padding: 0;
   visibility: hidden;
+  user-select: none;
+  cursor: auto;
 }
 
 /* 당근, 곤충들이 나올 필드 
@@ -133,4 +138,14 @@ body {
 
 .pop-up--hide {
   display: none;
+}
+
+.carrot,
+.bug {
+  transition: transform 100ms ease-in;
+}
+.carrot:hover,
+.bug:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
