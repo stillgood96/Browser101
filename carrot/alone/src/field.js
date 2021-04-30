@@ -14,7 +14,7 @@ const CARROT_SIZE = 80;
 // 다른언어에서는 당연히 정보가 남아져 이동이되도록 보이겠지만
 // 자바스크립트에서는 그렇지 않다고 한다.
 
-// 정정 클래스 내부의 함수가 콜백함수라던지 다른곳에 호출되어 팔려가게 되면
+// 정정! 클래스 내부의 함수가 콜백함수라던지 다른곳에 호출되어 팔려가게 되면
 // 내부에 있던 함수의 내용중 this.의 내용은 포함이 되지 않게 된다.
 // 그래서 this. 와 함수간의 연결고리가 되어주는 바인딩 작업이 필요해지는데 ...
 
@@ -32,7 +32,11 @@ const CARROT_SIZE = 80;
 // 함수로 만들지 않고 함수의 내용을 변수에 할당시켜 적용을 한다.
 // onClick = event => { 함수의 내용};
 
-export default class Field {
+export const ItemType = Object.freeze({
+  carrot: "carrot",
+  bug: "bug",
+});
+export class Field {
   constructor(carrotCount, bugCount) {
     this.carrotCount = carrotCount;
     this.bugCount = bugCount;
@@ -77,9 +81,9 @@ export default class Field {
       // 당근!!
       target.remove();
       sound.playCarrot();
-      this.onItemClick && this.onItemClick("carrot");
+      this.onItemClick && this.onItemClick(ItemType.carrot);
     } else if (target.matches(".bug")) {
-      this.onItemClick && this.onItemClick("bug");
+      this.onItemClick && this.onItemClick(ItemType.bug);
     }
   };
 }
